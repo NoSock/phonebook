@@ -123,5 +123,10 @@
       }
     }
   },
-  "defaultProject": "Phonebook"
+  "defaultProject": "Phonebook",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "less"
+    }
+  }
 }
