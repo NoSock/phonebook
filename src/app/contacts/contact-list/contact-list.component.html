@@ -1,6 +1,6 @@
 <button routerLink="/add">add</button>
 <div>
-  <div *ngFor="let contact of contacts">
+  <div *ngFor="let contact of contacts | async">
     <div routerLink="/edit/{{contact.id}}">{{contact.name}} {{contact.secondName}}</div>
   </div>
 </div>

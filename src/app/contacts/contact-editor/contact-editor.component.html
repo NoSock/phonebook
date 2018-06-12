@@ -8,15 +8,16 @@
   <label>Age:
     <input formControlName="age">
   </label>
-  <div>Numbers:   <button (click)="addNumber()"
-          [disabled]="phoneNumbers.invalid">+</button>
-  </div>
-  <div formArrayName="phoneNumbers"
-    *ngFor="let number of phoneNumbers.controls; let i = index;">
-    <input [formControlName]="i">
-    <button (click)="hideNumber(i)">-</button>
-  </div>
 </form>
+<div>Numbers:
+  <button (click)="addNumber()"
+                        [disabled]="phoneNumbers.invalid">+</button>
+</div>
+<div [formGroup]="phoneNumbers"
+     *ngFor="let number of phoneNumbers.controls; let i = index;">
+  <input [formControlName]="i">
+  <button (click)="hideNumber(i)">-</button>
+</div>
 <button (click)="save()" [disabled]="form.invalid">Save</button>
 <button (click)="delete()" *ngIf="contactId">Delete</button>
 <button (click)="back()">Cancel</button>

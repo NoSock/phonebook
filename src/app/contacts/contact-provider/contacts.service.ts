@@ -1,32 +1,30 @@
 import { Injectable } from '@angular/core';
-import {Contact} from './contacts-model';
-import {Observable} from 'rxjs';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import {Observable} from 'rxjs';
 import {filter, map, tap} from 'rxjs/operators';
 
+import { Contact } from '../contacts-model';
 
-@Injectable({
-  providedIn: 'root'
-})
+
+@Injectable()
 export class ContactsService {
   dbContacts: AngularFireList<Contact>;
   constructor(private fireDatabase: AngularFireDatabase) {
-    this.dbContacts = this.fireDatabase.list('/contacts');
+    this.dbContacts = this.fireDatabase.list('/contact-list');
   }
 
   getContacts(): Observable<Contact[]> {
     return this.dbContacts.valueChanges().pipe(
-      tap(console.log)
+      tap(console.log),
     );
   }
 
   getContact(id: string): Observable<Contact> {
     return this.dbContacts.valueChanges().pipe(
-      map(array => array.reduce((acc, value) => {
-          if (value.id === id) {
-            return value;
-          }
-        }, null)
+      map(
+        array => array.find(
+          contact => contact.id === id
+        )
       ),
       filter(v => !!v )
     );

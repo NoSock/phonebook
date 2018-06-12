@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, OnDestroy} from '@angular/core';
 import {FormBuilder, FormGroup, FormArray, Validators, FormControl} from '@angular/forms';
-import {ContactsService} from '../contacts.service';
+import {ContactsService} from '../contact-provider/contacts.service';
 import {Contact} from '../contacts-model';
 import {Location} from '@angular/common';
 import {Subscription} from 'rxjs';
@@ -9,7 +9,7 @@ import {first} from 'rxjs/operators';
 @Component({
   selector: 'app-contact-editor',
   templateUrl: './contact-editor.component.html',
-  styleUrls: ['./contact-editor.component.css']
+  styleUrls: ['./contact-editor.component.less']
 })
 export class ContactEditorComponent implements OnInit, OnDestroy {
   form: FormGroup;
@@ -31,7 +31,6 @@ export class ContactEditorComponent implements OnInit, OnDestroy {
       name: [this.contact.name, Validators.required],
       secondName: this.contact.secondName,
       age: this.contact.age,
-      phoneNumbers: this.phoneNumbers
     });
   }
 
@@ -54,6 +53,7 @@ export class ContactEditorComponent implements OnInit, OnDestroy {
   save() {
     console.log("form: ", this.form.value);
     Object.assign(this.contact, this.form.value);
+    this.contact.phoneNumbers = this.phoneNumbers.value;
     console.log("contact: ", this.contact)
     if (this.contactId){
       this.contact.id = this.contactId;
