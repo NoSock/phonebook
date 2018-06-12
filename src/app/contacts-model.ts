@@ -1,5 +1,5 @@
 export class Contact {
-  id: number;
+  id: string;
   name: string;
   secondName: string;
   age: number;
@@ -9,7 +9,3 @@ export class Contact {
     this.phoneNumbers = [];
   }
 }
-
-export let contacts: Contact[] = [
-  {id: 1, name: 'Vasya', secondName: 'Pupkin', age: 800, phoneNumbers: ['123123']}
-]
