@@ -1,0 +1,19 @@
+.contact-form{
+  display: flex;
+  flex-direction: column;
+  max-width: 20rem;
+}
+
+.contact-form label {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.form-edit input {
+  border-style: none;
+}
+
+.form-edit input:focus {
+  border-style: inset;
+}
