@@ -1,10 +1,11 @@
 import {Component, Input, OnInit, OnDestroy} from '@angular/core';
 import {FormBuilder, FormGroup, FormArray, Validators, FormControl} from '@angular/forms';
-import {ContactsService} from '../contact-provider/contacts.service';
-import {Contact} from '../contacts-model';
 import {Location} from '@angular/common';
 import {Subscription} from 'rxjs';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, ActivatedRouteSnapshot, ParamMap} from '@angular/router';
+
+import {ContactsService} from '../contact-provider/contacts.service';
+import {Contact} from '../contacts-model';
 
 @Component({
   selector: 'app-contact-editor',
@@ -12,18 +13,20 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./contact-editor.component.less']
 })
 export class ContactEditorComponent implements OnInit, OnDestroy {
+  private queryParams: ParamMap;
+  private routeSnapshot: ActivatedRouteSnapshot;
   form: FormGroup;
   contact: Contact;
   phoneNumbers: FormArray;
   subscriptions: Subscription[] = [];
-
-  @Input()
   contactId = '';
 
   constructor(private formBuilder: FormBuilder,
               private contactsService: ContactsService,
               private location: Location,
               private route: ActivatedRoute) {
+    this.routeSnapshot = this.route.snapshot;
+    this.queryParams = this.routeSnapshot.queryParamMap;
   }
 
   createForm() {
@@ -75,8 +78,7 @@ export class ContactEditorComponent implements OnInit, OnDestroy {
     this.location.back();
   }
 
-  initContact() {
-    this.contact = new Contact();
+  loadContact() {
     this.subscriptions.push(
       this.contactsService.getContact(this.contactId)
         .subscribe(contact => {
@@ -89,10 +91,24 @@ export class ContactEditorComponent implements OnInit, OnDestroy {
     );
   }
 
+  initContact() {
+    this.contact = new Contact();
+    this.contact.name = this.queryParams.get('name') || '';
+    this.contact.secondName = this.queryParams.get('secondName') || '';
+    this.contact.age = +this.queryParams.get('age') || undefined;
+    const number = this.queryParams.get('');
+    if (number) {
+      this.contact.phoneNumbers.push(number);
+    }
+    if (this.contactId) {
+      this.loadContact();
+    }
+  }
+
   ngOnInit() {
+    this.contactId = this.routeSnapshot.paramMap.get('id');
     this.initContact();
     this.createForm();
-    console.log(this.route.snapshot.paramMap.get('shit'));
   }
 
   ngOnDestroy() {

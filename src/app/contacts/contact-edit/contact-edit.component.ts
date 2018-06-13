@@ -1,17 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-edit-contact',
   templateUrl: './contact-edit.component.html',
   styleUrls: ['./contact-edit.component.less']
 })
-export class ContactEditComponent implements OnInit {
-  contactId: string;
-  constructor(private route: ActivatedRoute) { }
+export class ContactEditComponent {}
 
-  ngOnInit() {
-    this.contactId = this.route.snapshot.paramMap.get('id');
-  }
-
-}
