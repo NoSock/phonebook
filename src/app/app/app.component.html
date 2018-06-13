@@ -1,19 +1,21 @@
-<div class="logo" routerLink="/"></div>
-<select (change)="change($event)">
-  <option *ngFor="let lang of langs"
-          [value]="lang.code">
-    {{lang.display}}
-  </option>
-</select>
-<form [formGroup]="form">
-  Please let us know you:
-  <label>Your name:
-    <input formControlName="name">
-  </label>
-  <label>
-    Your email:
-    <input formControlName="email">
-  </label>
-</form>
+<div class="flex">
+  <div class="logo" routerLink="/"></div>
+  <form [formGroup]="form">
+    Please let us know you:
+    <label class="label">Your name:
+      <input formControlName="name">
+    </label>
+    <label class="label">
+      Your email:
+      <input formControlName="email">
+    </label>
+  </form>
+  <select (change)="change($event)">
+    <option *ngFor="let lang of langs"
+            [value]="lang.code">
+      {{lang.display}}
+    </option>
+  </select>
+</div>
 <hr>
 <router-outlet></router-outlet>
