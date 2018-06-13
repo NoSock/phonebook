@@ -5,5 +5,15 @@
     {{lang.display}}
   </option>
 </select>
+<form [formGroup]="form">
+  Please let us know you:
+  <label>Your name:
+    <input formControlName="name">
+  </label>
+  <label>
+    Your email:
+    <input formControlName="email">
+  </label>
+</form>
 <hr>
 <router-outlet></router-outlet>

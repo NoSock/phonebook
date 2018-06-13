@@ -55,11 +55,9 @@ export class ContactEditorComponent implements OnInit, OnDestroy {
   }
 
   save() {
-    console.log("form: ", this.form.value);
     Object.assign(this.contact, this.form.value);
     this.contact.phoneNumbers = this.phoneNumbers.value;
-    console.log("contact: ", this.contact)
-    if (this.contactId){
+    if (this.contactId) {
       this.contact.id = this.contactId;
     }
     if (!this.contact.phoneNumbers) {

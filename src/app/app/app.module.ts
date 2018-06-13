@@ -4,11 +4,13 @@ import { RouterModule } from '@angular/router';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from '../routing/app-routing.module';
 import { ContactsModule } from '../contacts/contacts.module';
 
 import { AppComponent } from './app.component';
+import { UserInfoModule } from '../user-info/user-info.module';
 
 export function
 HttpLoaderFactory(http: HttpClient) {
@@ -22,6 +24,7 @@ HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     RouterModule,
     AppRoutingModule,
     ContactsModule,
@@ -32,7 +35,8 @@ HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    UserInfoModule
   ],
   bootstrap: [AppComponent]
 })

@@ -16,8 +16,7 @@ export class ContactsService {
       .list('/contact-list');
     this.dbContacts = this.dbList.valueChanges().pipe(
         debounceTime(300),
-        distinctUntilChanged(),
-        tap(console.log)
+        distinctUntilChanged()
       );
   }
 

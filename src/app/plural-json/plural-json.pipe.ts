@@ -1,11 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+interface pipePrams {
+  param?: string;
+  pluralParam?: string;
+}
+
 @Pipe({
   name: 'pluralJson'
 })
 export class PluralJsonPipe implements PipeTransform {
 
-  transform(value: any, args?: any): any {
+  transform(value: string, args?: pipePrams): string {
     if (!value) {
       return value;
     }
