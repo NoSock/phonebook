@@ -1,0 +1,16 @@
+{
+	"metadata":{
+		"display":"English"
+	},
+	"phonebookSize":"{\"1\":\"Your phonebook contains {val} contact\",\"other\":\"Your phonebook contains {val} contacts\"}",
+	"editHeader":"Edit a contact:",
+	"addHeader":"Add a contact:",
+	"nameField":"Name:",
+	"secondNameField":"Second Name:",
+	"ageField":"Age:",
+	"phoneNumbersField":"Phone Numbers:",
+	"addContactButton":"Add contact",
+	"saveButton":"Save",
+	"deleteButton":"Delete",
+	"cancelButton":"Cancel"
+}

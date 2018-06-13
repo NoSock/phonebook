@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import {Observable} from 'rxjs';
-import {debounceTime, distinctUntilChanged, map, tap} from 'rxjs/operators';
+import {debounceTime, distinctUntilChanged, filter, map, tap} from 'rxjs/operators';
 
 import { Contact } from '../contacts-model';
 
@@ -29,7 +29,8 @@ export class ContactsService {
     return this.dbContacts.pipe(
       map(contacts => contacts.find(
         contact => contact.id === id
-      ))
+      )),
+      filter(x => !!x)
     );
   }
 

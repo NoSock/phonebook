@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="0626d1588b097ea76f0548a541860eed8b3d2ae4" datatype="html">
+        <source>
+		  <x id="ICU" equiv-text="{size%10, plural, =1 {...} other {...}}"/>
+		</source>
+		<target>
+		  <x id="ICU" equiv-text="{size%10, plural, =1 {...} other {...}}"/>
+		</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/contacts/contact-list/contact-list.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7568dc89f2f95ebfd3f867904ada4bba6efed1e2" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {Your phonebook contains <x id="INTERPOLATION" equiv-text="{{size}}"/> contact} other {Your phonebook contains <x id="INTERPOLATION" equiv-text="{{size}}"/> contacts} }</source>
+        <target>{VAR_PLURAL, plural, =1 { В вашей телефонной книге <x id="INTERPOLATION" equiv-text="{{size}}"/> контакт} =2 { В вашей телефонной книге <x id="INTERPOLATION" equiv-text="{{size}}"/> контакта} =3 { В вашей телефонной книге <x id="INTERPOLATION" equiv-text="{{size}}"/> контакта} =4 { В вашей телефонной книге <x id="INTERPOLATION" equiv-text="{{size}}"/> контакта}  other { В вашей телефонной книге <x id="INTERPOLATION" equiv-text="{{size}}"/> контактов} }</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/contacts/contact-list/contact-list.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editHeader" datatype="html">
+        <source>
+		  Edit a contact:
+		</source>
+		<target>
+		  Редактировать контакт:
+		</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/contacts/contact-edit/contact-edit.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description">A header of the &apos;add&apos; dialog</note>
+        <note priority="1" from="meaning">add header</note>
+      </trans-unit>
+      <trans-unit id="addHeader" datatype="html">
+        <source>
+		  Add a contact:
+		</source>
+		<target>
+		  Добавить контакт:
+		</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/contacts/contact-add/contact-add.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description">A header of the &apos;add&apos; dialog</note>
+        <note priority="1" from="meaning">add header</note>
+      </trans-unit>
+      <trans-unit id="nameField" datatype="html">
+        <source>
+			Name:
+			<x id="TAG_INPUT" ctype="x-input" equiv-text="&lt;input/&gt;"/>
+		</source>
+		<target>
+			Имя:
+			<x id="TAG_INPUT" ctype="x-input" equiv-text="&lt;input/&gt;"/>
+		</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/contacts/contact-editor/contact-editor.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/contacts/contact-editor/contact-editor.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <note priority="1" from="description">Name form field</note>
+      </trans-unit>
+      <trans-unit id="secondNameField" datatype="html">
+        <source>
+		    Second Name:
+		    <x id="TAG_INPUT" ctype="x-input" equiv-text="&lt;input/&gt;"/>
+		</source>
+		<target>
+		    Фамилия:
+		    <x id="TAG_INPUT" ctype="x-input" equiv-text="&lt;input/&gt;"/>
+		</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/contacts/contact-editor/contact-editor.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Second name form field</note>
+      </trans-unit>
+      <trans-unit id="phoneNumbersField" datatype="html">
+	    <source>Numbers:
+		  <x id="START_TAG_BUTTON" ctype="x-button" equiv-text="&lt;button&gt;"/>
+		    +
+		  <x id="CLOSE_TAG_BUTTON" ctype="x-button" equiv-text="&lt;/button&gt;"/>
+		</source>
+		<target>Номера:
+		  <x id="START_TAG_BUTTON" ctype="x-button" equiv-text="&lt;button&gt;"/>
+		    +
+		  <x id="CLOSE_TAG_BUTTON" ctype="x-button" equiv-text="&lt;/button&gt;"/>
+		</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/contacts/contact-editor/contact-editor.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">Phone numbers form field</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
