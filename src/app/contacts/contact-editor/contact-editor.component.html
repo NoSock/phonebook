@@ -1,23 +1,43 @@
-<form [formGroup]="form" class="contact-form" [class.form-edit]="contactId">
-  <label>Name:
+<form [formGroup]="form"
+      class="contact-form"
+      [class.form-edit]="contactId"
+      (keyup.enter)="save()">
+  <label>
+    {{'nameField'|translate}}
     <input formControlName="name">
   </label>
-  <label>Second Name:
+  <label>
+    {{'secondNameField'|translate}}
     <input formControlName="secondName">
   </label>
-  <label>Age:
+  <label>
+    {{'ageField'|translate}}
     <input formControlName="age">
   </label>
 </form>
-<div>Numbers:
+<div>
+  {{'phoneNumbersField'|translate}}
   <button (click)="addNumber()"
-                        [disabled]="phoneNumbers.invalid">+</button>
+          [disabled]="phoneNumbers.invalid">
+    +
+  </button>
 </div>
 <div [formGroup]="phoneNumbers"
      *ngFor="let number of phoneNumbers.controls; let i = index;">
   <input [formControlName]="i">
-  <button (click)="hideNumber(i)">-</button>
+  <button (click)="hideNumber(i)">
+    -
+  </button>
 </div>
-<button (click)="save()" [disabled]="form.invalid">Save</button>
-<button (click)="delete()" *ngIf="contactId">Delete</button>
-<button (click)="back()">Cancel</button>
+
+<button (click)="save()"
+        [disabled]="form.invalid">
+  {{'saveButton'|translate}}
+</button>
+<button (click)="delete()"
+        *ngIf="contactId">
+  {{'deleteButton'|translate}}
+</button>
+<button (click)="back()">
+  {{'cancelButton'|translate}}
+</button>

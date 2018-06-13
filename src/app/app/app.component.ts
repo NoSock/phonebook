@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'app';
+  langs = [
+    {code: 'en', display: 'English'},
+    {code: 'ru', display: 'Russian'}
+  ];
+
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang('en');
+    this.translate.addLangs(this.langs.map(x => x.code));
+  }
+
+  change({target}) {
+    this.translate.use(target.value);
+  }
+
 }

@@ -8,4 +8,5 @@ export class Contact {
   constructor() {
     this.phoneNumbers = [];
   }
+
 }

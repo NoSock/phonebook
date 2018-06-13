@@ -4,7 +4,7 @@ import {ContactsService} from '../contact-provider/contacts.service';
 import {Contact} from '../contacts-model';
 import {Location} from '@angular/common';
 import {Subscription} from 'rxjs';
-import {first} from 'rxjs/operators';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-contact-editor',
@@ -22,7 +22,8 @@ export class ContactEditorComponent implements OnInit, OnDestroy {
 
   constructor(private formBuilder: FormBuilder,
               private contactsService: ContactsService,
-              private location: Location) {
+              private location: Location,
+              private route: ActivatedRoute) {
   }
 
   createForm() {
@@ -91,6 +92,7 @@ export class ContactEditorComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.initContact();
     this.createForm();
+    console.log(this.route.snapshot.paramMap.get('shit'));
   }
 
   ngOnDestroy() {

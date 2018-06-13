@@ -1,6 +1,13 @@
-<button routerLink="/add">add</button>
-<div>
-  <div *ngFor="let contact of contacts | async">
-    <div routerLink="/edit/{{contact.id}}">{{contact.name}} {{contact.secondName}}</div>
+<button routerLink="/add">{{'addContactButton'|translate}}</button>
+<span>
+  {{'phonebookSize'|translate|pluralJson:{
+                                          pluralParam: size%10,
+                                          param: size
+                                          }
+  }}
+</span>
+<div *ngFor="let contact of contacts | async">
+  <div routerLink="/edit/{{contact.id}}">
+    {{contact.name}} {{contact.secondName}}
   </div>
 </div>
