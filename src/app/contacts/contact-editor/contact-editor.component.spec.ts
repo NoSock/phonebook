@@ -1,20 +1,16 @@
 import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
-
-import { ContactEditorComponent } from './contact-editor.component';
 import {ActivatedRoute, ActivatedRouteSnapshot, ParamMap} from '@angular/router';
-import {ContactsService} from '../contact-provider/contacts.service';
-import {CommonModule, Location, LocationStrategy} from '@angular/common';
-import createSpyObj = jasmine.createSpyObj;
-import SpyObj = jasmine.SpyObj;
-import {Contact} from '../contacts-model';
+import {CommonModule, Location } from '@angular/common';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {HttpLoaderFactory} from '../../app/app.module';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {BrowserModule} from '@angular/platform-browser';
 import {RouterTestingModule} from '@angular/router/testing';
-import {Observable, of, Subscription} from 'rxjs';
+import {Observable, of} from 'rxjs';
+
+import { ContactEditorComponent } from './contact-editor.component';
+import {Contact} from '../contacts-model';
+import {ContactsService} from '../contact-provider/contacts.service';
+import {HttpLoaderFactory} from '../../app/app.module';
 
 const mockQueryContact = new Contact();
 const mockDbContact = new Contact();
