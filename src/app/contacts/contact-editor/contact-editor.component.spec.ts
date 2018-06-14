@@ -12,20 +12,8 @@ import {Contact} from '../contacts-model';
 import {ContactsService} from '../contact-provider/contacts.service';
 import {HttpLoaderFactory} from '../../app/app.module';
 
-const mockQueryContact = new Contact();
-const mockDbContact = new Contact();
-Object.assign(mockQueryContact, {
-  name: 'queryMockName',
-  secondName: 'queryMockSecondName',
-  age: 999,
-  phoneNumbers: ['queryMockPhone']
-});
-Object.assign(mockDbContact, {
-  name: 'mockName',
-  secondName: 'mockSecondName',
-  age: 666,
-  phoneNumbers: ['mockPhone1', 'mockPhone2']
-});
+let mockQueryContact: Contact;
+let mockDbContact: Contact;
 
 let savedContact: Contact;
 let deletedContactId: string;
@@ -117,6 +105,20 @@ describe('ContactEditorComponent', () => {
   }));
 
   beforeEach(fakeAsync(() => {
+    mockQueryContact = new Contact();
+    mockDbContact = new Contact();
+    Object.assign(mockQueryContact, {
+      name: 'queryMockName',
+      secondName: 'queryMockSecondName',
+      age: 999,
+      phoneNumbers: ['queryMockPhone']
+    });
+    Object.assign(mockDbContact, {
+      name: 'mockName',
+      secondName: 'mockSecondName',
+      age: 666,
+      phoneNumbers: ['mockPhone1', 'mockPhone2']
+    });
     fixture = TestBed.createComponent(ContactEditorComponent);
     tick();
     component = fixture.componentInstance;
@@ -128,6 +130,7 @@ describe('ContactEditorComponent', () => {
   });
 
   it('should init the contact with the right info', () => {
+    component.contactId = undefined;
     component.initContact();
     fixture.detectChanges();
     expect(component.contact).toEqual(mockQueryContact);
@@ -141,8 +144,6 @@ describe('ContactEditorComponent', () => {
   }));
 
   it('should load the contact from db', fakeAsync( () => {
-    component.initContact();
-    expect(component.contact).toEqual(mockQueryContact);
     component.loadContact();
     tick();
     fixture.detectChanges();

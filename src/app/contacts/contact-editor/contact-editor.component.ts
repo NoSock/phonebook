@@ -60,9 +60,6 @@ export class ContactEditorComponent implements OnInit, OnDestroy {
     if (this.contactId) {
       this.contact.id = this.contactId;
     }
-    if (!this.contact.phoneNumbers) {
-      this.contact.phoneNumbers = [];
-    }
     this.contactsService.saveContact(this.contact);
     this.back();
   }
