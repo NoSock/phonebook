@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {FormBuilder, FormGroup, FormArray, Validators, FormControl} from '@angular/forms';
 import {Location} from '@angular/common';
 import {Subscription} from 'rxjs';
@@ -14,7 +14,7 @@ import {Contact} from '../contacts-model';
 })
 export class ContactEditorComponent implements OnInit, OnDestroy {
   private queryParams: ParamMap;
-  private routeSnapshot: ActivatedRouteSnapshot;
+  private params: ParamMap;
   form: FormGroup;
   contact: Contact;
   phoneNumbers: FormArray;
@@ -25,8 +25,8 @@ export class ContactEditorComponent implements OnInit, OnDestroy {
               private contactsService: ContactsService,
               private location: Location,
               private route: ActivatedRoute) {
-    this.routeSnapshot = this.route.snapshot;
-    this.queryParams = this.routeSnapshot.queryParamMap;
+    this.params = this.route.snapshot.paramMap;
+    this.queryParams = this.route.snapshot.queryParamMap;
   }
 
   createForm() {
@@ -81,7 +81,7 @@ export class ContactEditorComponent implements OnInit, OnDestroy {
       this.contactsService.getContact(this.contactId)
         .subscribe(contact => {
           this.contact = contact;
-          if (!contact.phoneNumbers){
+          if (!contact.phoneNumbers) {
             contact.phoneNumbers = [];
           }
           this.createForm();
@@ -94,7 +94,7 @@ export class ContactEditorComponent implements OnInit, OnDestroy {
     this.contact.name = this.queryParams.get('name') || '';
     this.contact.secondName = this.queryParams.get('secondName') || '';
     this.contact.age = +this.queryParams.get('age') || undefined;
-    const number = this.queryParams.get('');
+    const number = this.queryParams.get('phoneNumber');
     if (number) {
       this.contact.phoneNumbers.push(number);
     }
@@ -104,7 +104,7 @@ export class ContactEditorComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.contactId = this.routeSnapshot.paramMap.get('id');
+    this.contactId = this.params.get('id');
     this.initContact();
     this.createForm();
   }

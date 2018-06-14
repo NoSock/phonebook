@@ -18,20 +18,20 @@
 <div>
   {{'phoneNumbersField'|translate}}
   <button (click)="addNumber()"
-          [disabled]="phoneNumbers.invalid">
+          [disabled]="phoneNumbers?.invalid">
     +
   </button>
 </div>
 <div [formGroup]="phoneNumbers"
      *ngFor="let number of phoneNumbers.controls; let i = index;">
-  <input [formControlName]="i">
+  <input [formControlName]="i" class="number-input">
   <button (click)="hideNumber(i)">
     -
   </button>
 </div>
 
 <button (click)="save()"
-        [disabled]="form.invalid">
+        [disabled]="form?.invalid">
   {{'saveButton'|translate}}
 </button>
 <button (click)="delete()"
