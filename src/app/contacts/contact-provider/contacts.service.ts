@@ -33,12 +33,12 @@ export class ContactsService {
     );
   }
 
-  saveContact(c: Contact) {
-    if (!c.id) {
-      const id = this.dbList.push(c);
-      c.id = id.key;
+  saveContact(contact: Contact) {
+    if (!contact.id) {
+      const id = this.dbList.push(contact);
+      contact.id = id.key;
     }
-    this.dbList.set(c.id, c);
+    this.dbList.set(contact.id, contact);
   }
 
   deleteContact(id: string) {

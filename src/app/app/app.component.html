@@ -1,12 +1,13 @@
 <div class="flex">
   <div class="logo" routerLink="/"></div>
   <form [formGroup]="form">
-    Please let us know you:
-    <label class="label">Your name:
-      <input formControlName="name">
+    {{'regHeader'|translate}}
+    <label class="label">
+      {{'regName'|translate}}
+      <input formControlName="userName">
     </label>
     <label class="label">
-      Your email:
+      {{'regEmail'|translate}}
       <input formControlName="email">
     </label>
   </form>

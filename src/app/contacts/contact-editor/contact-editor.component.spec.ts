@@ -28,8 +28,8 @@ class MockContactsService {
     return of(mockDbContact);
   }
 
-  saveContact(c: Contact) {
-    savedContact = c;
+  saveContact(contact: Contact) {
+    savedContact = contact;
   }
 
   deleteContact(id: string) {

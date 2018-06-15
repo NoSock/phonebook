@@ -12,5 +12,8 @@
 	"addContactButton":"Добавить контакт",
 	"saveButton":"Сохранить",
 	"deleteButton":"Удалить",
-	"cancelButton":"Отмена"
+	"cancelButton":"Отмена",
+	"regHeader":"Давайте знакомиться:",
+	"regName":"Ваше имя:",
+	"regEmail":"Ваш email:"
 }

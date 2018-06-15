@@ -42,7 +42,7 @@ export class AppComponent implements OnInit, OnDestroy{
 
   ngOnInit() {
     this.form = new FormGroup({
-      name: new FormControl(localStorage.getItem('name')),
+      userName: new FormControl(localStorage.getItem('userName')),
       email: new FormControl(localStorage.getItem('email'))
     });
     this.sub = this.form.valueChanges.pipe(

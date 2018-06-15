@@ -12,5 +12,8 @@
 	"addContactButton":"Add contact",
 	"saveButton":"Save",
 	"deleteButton":"Delete",
-	"cancelButton":"Cancel"
+	"cancelButton":"Cancel",
+	"regHeader":"Please let us know you:",
+	"regName":"Your name:",
+	"regEmail":"Your email:"
 }
